@@ -264,7 +264,10 @@ bp_contours_hull_defects::return_of_the_draw( Mat Original_cam1_feed, Mat return
                 }
             }
     }
+    if (Found_contours.size() == 0){} // fixes a bug, when trying to free Found_contours crashes whole app. Sofinae Talmat
+    else
+    {
     Found_contours.clear(); // prevent from crashing when no hand isnt in screen
-
+    }
     return Original_cam1_feed;
 }
